@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/akmal4410/datastructure/search"
 	"github.com/akmal4410/datastructure/sort"
 	"github.com/akmal4410/datastructure/utils"
 )
@@ -19,6 +20,7 @@ TryAgain:
 		sort.Sorting()
 		goto TryAgain
 	case 3:
+		search.Searching()
 		goto TryAgain
 	case -1, 4:
 		os.Exit(0)
