@@ -2,49 +2,32 @@ package main
 
 import (
 	"fmt"
-	"strconv"
+	"os"
 
-	"github.com/akmal4410/datastructure/sorting"
+	"github.com/akmal4410/datastructure/sort"
+	"github.com/akmal4410/datastructure/utils"
 )
 
 func main() {
 	fmt.Println("Hai Welcome to Data Structure example\nWhat would you try to do: ?")
 TryAgain:
-	fmt.Println("1. Sorting")
-	var strValue string
-	strValue = scanValue(strValue)
-	val, err := strconv.Atoi(strValue)
-	if err != nil {
-		fmt.Println("Error", err)
-		fmt.Println("Do you want to try again ?\nEnter y - to continue")
-		var tryAgain string
-		_, err := fmt.Scan(&tryAgain)
-		if err != nil {
-			fmt.Println("Error Scan:", err)
-			return
-		}
-		if tryAgain == "y" {
-			goto TryAgain
-		} else {
-			return
-		}
-	}
-	switch val {
+	value := chooseDataStructure()
+	switch value {
 	case 1:
-		sorting.BubbleSort()
+		goto TryAgain
 	case 2:
-		sorting.SelectionSort()
-	default:
-		fmt.Printf("You Entered wrong choice: %d", val)
+		sort.Sorting()
+		goto TryAgain
+	case 3:
+		goto TryAgain
+	case -1, 4:
+		os.Exit(0)
 	}
-
 }
 
-func scanValue(strValue string) string {
-	_, err := fmt.Scan(&strValue)
-	if err != nil {
-		fmt.Println("Error Scan:", err)
-		return ""
-	}
-	return strValue
+func chooseDataStructure() int {
+	var ans int
+	fmt.Println("\nChoose the data structure to work:")
+	fmt.Println("1.Linear \n2.Sorting \n3.Searching \n4.Exit")
+	return utils.ScanValue(ans)
 }

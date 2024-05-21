@@ -1,9 +1,8 @@
-package sorting
+package sort
 
 import "fmt"
 
-func BubbleSort() {
-	var array []int = []int{4, 5, 3}
+func bubbleSort(array []int) {
 	fmt.Println("Array before soring :", array)
 	_sort(array)
 	fmt.Println("Array after sorting ", array)

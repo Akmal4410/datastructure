@@ -1,9 +1,8 @@
-package sorting
+package sort
 
 import "fmt"
 
-func SelectionSort() {
-	var array []int = []int{4, 5, 3}
+func selectionSort(array []int) {
 	fmt.Println("Array before soring :", array)
 	sort(array)
 	fmt.Println("Array after sorting ", array)
@@ -13,7 +12,7 @@ func sort(array []int) {
 	for i := 0; i < len(array)-1; i++ {
 		smallIndex := i
 		for j := i + 1; j < len(array); j++ {
-			if array[j] < smallIndex {
+			if array[j] < array[smallIndex] {
 				smallIndex = j
 			}
 		}
