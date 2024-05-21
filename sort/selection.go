@@ -3,12 +3,13 @@ package sort
 import "fmt"
 
 func selectionSort(array []int) {
+	fmt.Println("Selection Sort ====>")
 	fmt.Println("Array before soring :", array)
-	sort(array)
+	_selectionSort(array)
 	fmt.Println("Array after sorting ", array)
 }
 
-func sort(array []int) {
+func _selectionSort(array []int) {
 	for i := 0; i < len(array)-1; i++ {
 		smallIndex := i
 		for j := i + 1; j < len(array); j++ {

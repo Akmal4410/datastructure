@@ -35,6 +35,10 @@ Length:
 		selectionSort(arr)
 		arr = nil
 		goto TrySorting
+	case 3:
+		insertionSort(arr)
+		arr = nil
+		goto TrySorting
 	case 4:
 		break
 	case -1, 5:
