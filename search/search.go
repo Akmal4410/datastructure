@@ -38,6 +38,7 @@ Length:
 		arr = nil
 		goto TrySearching
 	case 2:
+		binarySerch(arr, target)
 		arr = nil
 		goto TrySearching
 	case 3:
