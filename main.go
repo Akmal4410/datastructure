@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/akmal4410/datastructure/linear"
 	"github.com/akmal4410/datastructure/search"
 	"github.com/akmal4410/datastructure/sort"
 	"github.com/akmal4410/datastructure/utils"
@@ -15,6 +16,7 @@ TryAgain:
 	value := chooseDataStructure()
 	switch value {
 	case 1:
+		linear.LinearDS()
 		goto TryAgain
 	case 2:
 		sort.Sorting()

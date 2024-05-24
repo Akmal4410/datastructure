@@ -9,7 +9,6 @@ func insertionSort(array []int) {
 	fmt.Println("Array after sorting ", array)
 }
 
-// In Bubble sort the last element will get sorted first
 func _insertionSort(array []int) {
 	for i := 1; i < len(array); i++ {
 		key := array[i]
