@@ -15,6 +15,7 @@ TryLinear:
 	choice = utils.ScanValue(choice)
 	switch choice {
 	case 1:
+		singlyLinkedList()
 		goto TryLinear
 	case 2:
 		goto TryLinear
