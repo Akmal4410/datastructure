@@ -27,6 +27,9 @@ TryLinear:
 	case 5:
 		stackLinkedListFunc()
 		goto TryLinear
+	case 6:
+		queueArrayFunc()
+		goto TryLinear
 	case 8:
 		break
 	case -1, 9:

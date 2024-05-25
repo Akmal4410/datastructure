@@ -61,7 +61,7 @@ func (s *stackArray) pop() int {
 
 func (s *stackArray) display() {
 	fmt.Print("Displaing stack \n===============\n")
-	if len(s.array) == 0 && s.array == nil {
+	if len(s.array) == 0 || s.array == nil {
 		fmt.Println("Empty Stack")
 	} else {
 		for i := len(s.array) - 1; i >= 0; i-- {
