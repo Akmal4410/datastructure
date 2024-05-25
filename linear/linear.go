@@ -15,14 +15,17 @@ TryLinear:
 	choice = utils.ScanValue(choice)
 	switch choice {
 	case 1:
-		singlyLinkedList()
+		singlyLinkedListFunc()
 		goto TryLinear
 	case 2:
 		goto TryLinear
 	case 3:
 		goto TryLinear
 	case 4:
-		stackArray()
+		stackArrayFunc()
+		goto TryLinear
+	case 5:
+		stackLinkedListFunc()
 		goto TryLinear
 	case 8:
 		break

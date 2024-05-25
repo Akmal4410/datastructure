@@ -7,9 +7,9 @@ import (
 	"github.com/akmal4410/datastructure/utils"
 )
 
-func stackArray() {
+func stackArrayFunc() {
 	var choice, temp int
-	stack := stack{}
+	stack := stackArray{}
 TryLinear:
 	fmt.Println("Choose Stack using Array operation :\n1.Display \n2.Push \n3.Pop \n4.Go Back \n5.Exit")
 	choice = utils.ScanValue(choice)
@@ -30,7 +30,7 @@ TryLinear:
 		if pop == -1 {
 			fmt.Println("Stack is underflow")
 		} else {
-			fmt.Printf("Poped value is %d", pop)
+			fmt.Printf("Poped value is %d\n", pop)
 		}
 		goto TryLinear
 	case 4:
@@ -42,15 +42,15 @@ TryLinear:
 	}
 }
 
-type stack struct {
+type stackArray struct {
 	array []int
 }
 
-func (s *stack) push(data int) {
+func (s *stackArray) push(data int) {
 	s.array = append(s.array, data)
 }
 
-func (s *stack) pop() int {
+func (s *stackArray) pop() int {
 	if len(s.array) == 0 || s.array == nil {
 		return -1
 	}
@@ -59,7 +59,7 @@ func (s *stack) pop() int {
 	return element
 }
 
-func (s *stack) display() {
+func (s *stackArray) display() {
 	fmt.Print("Displaing stack \n===============\n")
 	if len(s.array) == 0 && s.array == nil {
 		fmt.Println("Empty Stack")

@@ -7,7 +7,7 @@ import (
 	"github.com/akmal4410/datastructure/utils"
 )
 
-func singlyLinkedList() {
+func singlyLinkedListFunc() {
 	var choice, data, temp int
 	sList := singleLinkedList{}
 TryLinear:
@@ -83,11 +83,6 @@ TryLinear:
 	default:
 		goto TryLinear
 	}
-}
-
-type node struct {
-	data int
-	next *node
 }
 
 type singleLinkedList struct {
