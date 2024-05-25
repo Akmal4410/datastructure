@@ -9,13 +9,13 @@ import (
 
 func queueArrayFunc() {
 	var choice, temp int
-	stack := queueArray{}
+	queue := queueArray{}
 TryLinear:
 	fmt.Println("Choose Queue using Array operation :\n1.Display \n2.Enqueue \n3.Dequeue \n4.Go Back \n5.Exit")
 	choice = utils.ScanValue(choice)
 	switch choice {
 	case 1:
-		stack.display()
+		queue.display()
 		goto TryLinear
 	case 2:
 		fmt.Println("Enter the value to insert")
@@ -23,12 +23,12 @@ TryLinear:
 		if temp == -1 {
 			goto TryLinear
 		}
-		stack.enqueue(temp)
+		queue.enqueue(temp)
 		goto TryLinear
 	case 3:
-		pop := stack.dequeue()
+		pop := queue.dequeue()
 		if pop == -1 {
-			fmt.Println("Stack is underflow")
+			fmt.Println("Queue is underflow")
 		} else {
 			fmt.Printf("Poped value is %d\n", pop)
 		}
@@ -46,26 +46,26 @@ type queueArray struct {
 	array []int
 }
 
-func (s *queueArray) enqueue(data int) {
-	s.array = append(s.array, data)
+func (q *queueArray) enqueue(data int) {
+	q.array = append(q.array, data)
 }
 
-func (s *queueArray) dequeue() int {
-	if len(s.array) == 0 || s.array == nil {
+func (q *queueArray) dequeue() int {
+	if len(q.array) == 0 || q.array == nil {
 		return -1
 	}
-	element := s.array[0]
-	s.array = s.array[1:]
+	element := q.array[0]
+	q.array = q.array[1:]
 	return element
 }
 
-func (s *queueArray) display() {
+func (q *queueArray) display() {
 	fmt.Print("Displaing Queue \n===============\n")
-	if len(s.array) == 0 || s.array == nil {
+	if len(q.array) == 0 || q.array == nil {
 		fmt.Println("Empty Queue")
 	} else {
-		for i := 0; i < len(s.array); i++ {
-			fmt.Printf("%d ", s.array[i])
+		for i := 0; i < len(q.array); i++ {
+			fmt.Printf("%d ", q.array[i])
 		}
 		fmt.Println()
 	}

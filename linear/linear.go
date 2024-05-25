@@ -30,6 +30,9 @@ TryLinear:
 	case 6:
 		queueArrayFunc()
 		goto TryLinear
+	case 7:
+		queueLinkedListFunc()
+		goto TryLinear
 	case 8:
 		break
 	case -1, 9:
