@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/akmal4410/datastructure/linear"
+	"github.com/akmal4410/datastructure/nonlinear"
 	"github.com/akmal4410/datastructure/search"
 	"github.com/akmal4410/datastructure/sort"
 	"github.com/akmal4410/datastructure/utils"
@@ -19,12 +20,15 @@ TryAgain:
 		linear.LinearDS()
 		goto TryAgain
 	case 2:
-		sort.Sorting()
+		nonlinear.NonLinearDS()
 		goto TryAgain
 	case 3:
+		sort.Sorting()
+		goto TryAgain
+	case 4:
 		search.Searching()
 		goto TryAgain
-	case -1, 4:
+	case -1, 5:
 		os.Exit(0)
 	}
 }
@@ -32,6 +36,6 @@ TryAgain:
 func chooseDataStructure() int {
 	var ans int
 	fmt.Println("\nChoose the data structure to work:")
-	fmt.Println("1.Linear \n2.Sorting \n3.Searching \n4.Exit")
+	fmt.Println("1.Linear  \n2.Non Linear \n3.Sorting \n4.Searching \n5.Exit")
 	return utils.ScanValue(ans)
 }
