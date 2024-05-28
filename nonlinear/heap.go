@@ -96,39 +96,33 @@ func (heap *minHeap) display() {
 
 func (heap *minHeap) shiftDown(currentIndex int) {
 	endIndex := len(heap.heap) - 1
-	for {
-		leftChildIndex := heap.leftChildIndex(currentIndex)
-		rightChildIndex := heap.rightChildIndex(currentIndex)
-		smallestIndex := currentIndex
-
-		if leftChildIndex <= endIndex && heap.heap[leftChildIndex] < heap.heap[smallestIndex] {
-			smallestIndex = leftChildIndex
-		}
-
-		if rightChildIndex <= endIndex && heap.heap[rightChildIndex] < heap.heap[smallestIndex] {
-			smallestIndex = rightChildIndex
-		}
-
-		if smallestIndex == currentIndex {
-			break
-		}
-
-		// Swap elements
-		heap.heap[currentIndex], heap.heap[smallestIndex] = heap.heap[smallestIndex], heap.heap[currentIndex]
-		currentIndex = smallestIndex
+	leftChildIndex := heap.leftChildIndex(currentIndex)
+	rightChildIndex := heap.rightChildIndex(currentIndex)
+	smallIndex := currentIndex
+	if leftChildIndex <= endIndex && heap.heap[leftChildIndex] < heap.heap[smallIndex] {
+		smallIndex = leftChildIndex
+	}
+	if rightChildIndex <= endIndex && heap.heap[rightChildIndex] < heap.heap[smallIndex] {
+		smallIndex = rightChildIndex
+	}
+	if currentIndex != smallIndex {
+		// heap.heap[smallIndex], heap.heap[currentIndex] = heap.heap[currentIndex], heap.heap[smallIndex]
+		temp := heap.heap[smallIndex]
+		heap.heap[smallIndex] = heap.heap[currentIndex]
+		heap.heap[currentIndex] = temp
+		heap.shiftDown(smallIndex)
 	}
 }
 
 func (heap *minHeap) shiftUp(currentIndex int) {
-	for currentIndex > 0 {
-		parentIndex := heap.parentIndex(currentIndex)
-		if heap.heap[currentIndex] < heap.heap[parentIndex] {
-			// Swap elements
-			heap.heap[currentIndex], heap.heap[parentIndex] = heap.heap[parentIndex], heap.heap[currentIndex]
-			currentIndex = parentIndex
-		} else {
-			break
-		}
+	parentIndex := heap.parentIndex(currentIndex)
+	if currentIndex > 0 && heap.heap[currentIndex] < heap.heap[parentIndex] {
+		// Swap elements
+		temp := heap.heap[currentIndex]
+		heap.heap[currentIndex] = heap.heap[parentIndex]
+		heap.heap[parentIndex] = temp
+		// Recursive call to continue shifting up
+		heap.shiftUp(parentIndex)
 	}
 }
 
@@ -139,7 +133,6 @@ func (heap *minHeap) parentIndex(currentIndex int) int {
 func (heap *minHeap) leftChildIndex(currentIndex int) int {
 	return (currentIndex * 2) + 1
 }
-
 func (heap *minHeap) rightChildIndex(currentIndex int) int {
 	return (currentIndex * 2) + 2
 }
