@@ -11,10 +11,10 @@ func Sorting() {
 	var len, choice, value int
 	var arr []int
 TrySorting:
-	fmt.Println("Choose the sorting algorithm to work :\n1.Bubble Sort \n2.Selection Sort \n3.Insertion Sort \n4.Merge Sort \n5.Go Back \n6.Exit")
+	fmt.Println("Choose the sorting algorithm to work :\n1.Bubble Sort \n2.Selection Sort \n3.Insertion Sort \n4.Merge Sort \n5.Heap Sort \n6.Go Back \n7.Exit")
 	choice = utils.ScanValue(choice)
 Length:
-	if choice != -1 && choice != 5 && choice != 6 {
+	if choice != -1 && choice != 6 && choice != 7 {
 		fmt.Println("Enter the length of the array :")
 		len = utils.ScanValue(len)
 		if len == -1 {
@@ -44,8 +44,12 @@ Length:
 		arr = nil
 		goto TrySorting
 	case 5:
+		hearpSort(arr)
+		arr = nil
+		goto TrySorting
+	case 6:
 		break
-	case -1, 6:
+	case -1, 7:
 		os.Exit(0)
 	default:
 		goto TrySorting
