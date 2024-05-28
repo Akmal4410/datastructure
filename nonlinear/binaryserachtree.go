@@ -111,7 +111,7 @@ func (tree *binarySerchTree) remove(data int) {
 
 }
 
-func (tree *binarySerchTree) removeHelper(data int, currentNode *tNode, parentNode *tNode) {
+func (tree *binarySerchTree) removeHelper(data int, currentNode, parentNode *tNode) {
 	for currentNode != nil {
 		if data < currentNode.data {
 			parentNode = currentNode
@@ -120,7 +120,7 @@ func (tree *binarySerchTree) removeHelper(data int, currentNode *tNode, parentNo
 			parentNode = currentNode
 			currentNode = currentNode.rightNode
 		} else {
-			if currentNode.leftNode != nil && currentNode.rightNode != nil {
+			if currentNode.rightNode != nil && currentNode.leftNode != nil {
 				currentNode.data = tree.getMinimumValue(currentNode.rightNode)
 				tree.removeHelper(currentNode.data, currentNode.rightNode, currentNode)
 			} else {
@@ -135,7 +135,7 @@ func (tree *binarySerchTree) removeHelper(data int, currentNode *tNode, parentNo
 						if currentNode.rightNode == nil {
 							parentNode.leftNode = currentNode.leftNode
 						} else {
-							parentNode.rightNode = currentNode.rightNode
+							parentNode.leftNode = currentNode.rightNode
 						}
 					} else {
 						if currentNode.rightNode == nil {
