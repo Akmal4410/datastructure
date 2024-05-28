@@ -11,31 +11,30 @@ func LinearDS() {
 	var choice int
 
 TryLinear:
-	fmt.Println("Choose the Linear algorithm to work :\n1.Singly Linkedlist \n2.Doubly Linkedlist \n3.Cirucular Linkedlist \n4.Stack using Array \n5.Stack using Linkedlist \n6.Queue using Array \n7.Queue using Linkedlist \n8.Go Back \n9.Exit")
+	fmt.Println("Choose the Linear algorithm to work :\n1.Singly Linkedlist \n2.Doubly Linkedlist \n3.Stack using Array \n4.Stack using Linkedlist \n5.Queue using Array \n6.Queue using Linkedlist \n7.Go Back \n8.Exit")
 	choice = utils.ScanValue(choice)
 	switch choice {
 	case 1:
 		singlyLinkedListFunc()
 		goto TryLinear
 	case 2:
+		doubleLinkedListFunc()
 		goto TryLinear
 	case 3:
-		goto TryLinear
-	case 4:
 		stackArrayFunc()
 		goto TryLinear
-	case 5:
+	case 4:
 		stackLinkedListFunc()
 		goto TryLinear
-	case 6:
+	case 5:
 		queueArrayFunc()
 		goto TryLinear
-	case 7:
+	case 6:
 		queueLinkedListFunc()
 		goto TryLinear
-	case 8:
+	case 7:
 		break
-	case -1, 9:
+	case -1, 8:
 		os.Exit(0)
 	default:
 		goto TryLinear
